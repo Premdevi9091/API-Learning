@@ -1,0 +1,21 @@
+HTTP -> HyperText Transfer Protocol is a communticating protocol that use for transferring 
+data between client & servers over the web.
+
+HTTP methods -> HTTP methods are the operations performed on resources(data) such as creating, 
+retrieving, updating and deletion.
+
+PUT/PATCH -> Put update the entired data where as PATCH only update the specific data.
+
+HTTP Status Code -> indicates the result of an API such as success or fail.
+
+
+HTTP Headers -> HTTP headers contain metadata about the request or response, 
+such as content type, authentication details, and caching rules.
+
+REQUEST/RESPONSE HEADER
+Request headers send information from client to server
+Response headers send information from server to client
+
+Content-Type header -> format of the request/response body such as application/json
+
+Accept header -> It tells the server which response format the client expects

@@ -1,0 +1,50 @@
+Postman -> a tool used for API testing.
+  
+Workspace -> Create a workspace where we can create collection, env etc 
+Collection -> contains number of folders & HTTP request
+
+Validation Point
+1. Status code
+2. Time
+3. Response Body
+4. Cookies & Header
+
+HTTP Methods (Very Important)
+Commonly Used Methods
+Method	                Purpose	                    Real Example
+GET	                    Fetch data	                Get user details
+POST	                Create new data	            Create new user
+PUT	                    Update full data	        Update user profile
+PATCH	                Partial update	            Update email only
+DELETE	                Remove data	                Delete user
+
+HTTP Status
+2xx -> Success               
+200 - OK
+201 - Created  
+204 - No content
+
+4xx -> Client Error
+400 - Bad Request
+401 - Unauthorized -> Authentication is missing or invalid
+403 - Forbidden -> Authentication is valid, but access is denied
+404 - Not found
+
+5xx -> Server Error
+500 - Internal Server Error
+502 - Bad Gateway
+503 - Service Unavaiable
+
+HTTP Headers -> provides metadata about request/response
+
+Common Request Headers
+Header	                Purpose
+Content-Type	        Data format (JSON/XML)
+Authorization	        Token / credentials
+Accept	                Expected response format
+Common Response Headers
+
+Header	                Purpose
+Content-Type	        Response format
+Cache-Control	        Caching rules
+Server	                Server info
