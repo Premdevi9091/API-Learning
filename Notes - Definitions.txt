@@ -52,3 +52,5 @@ Type            Purpose                                   example
 search          find data based on keyword                products/search?q=text
 limit           how many data be to return                products?limit=5  
 skip            skip records and return next data         products?skip=1  
+
+Variables -> Variables store dynamic values that can be reused across requests.

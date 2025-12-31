@@ -1,0 +1,47 @@
+Basic Structure -> pm.expect(actual).to.<assertion>(expected);
+
+🔹 Equality Assertions
+Assertion	            When to Use	                        Example
+to.eql()	            Deep equality (objects/arrays)	    pm.expect(obj).to.eql({id:1})
+to.equal()	            Primitive values	                pm.expect(id).to.equal(1)
+to.not.eql()	        Negative check	                    pm.expect(id).to.not.eql(2)
+
+🔹 Existence & Property
+Assertion	            Use Case	                        Example
+to.have.property()	    Property exists	                    pm.expect(json).to.have.property("title")
+to.have.header()	    Header exists	                    pm.response.to.have.header("Content-Type")
+to.exist	            Value exists	                    pm.expect(value).to.exist
+
+🔹 Type Checks
+Assertion	            Example
+to.be.a("string")	    pm.expect(name).to.be.a("string")
+to.be.a("number")	    pm.expect(price).to.be.a("number")
+to.be.an("array")	    pm.expect(list).to.be.an("array")
+
+🔹 Boolean Checks
+Assertion	            Example
+to.be.true	            pm.expect(flag).to.be.true
+to.be.false	            pm.expect(flag).to.be.false
+
+🔹 Comparison Assertions
+Assertion	            Example
+to.be.above()	        pm.expect(price).to.be.above(100)
+to.be.below()	        pm.expect(time).to.be.below(1000)
+to.be.within()	        pm.expect(price).to.be.within(100, 1000)
+
+🔹 Array Assertions
+Assertion	            Example
+to.have.length()	    pm.expect(arr).to.have.length(5)
+to.be.empty	            pm.expect(arr).to.be.empty
+to.include()	        pm.expect(arr).to.include("phone")
+
+🔹 String Assertions
+Assertion	            Example
+to.include()	        pm.expect(title).to.include("Phone")
+to.match()	            pm.expect(email).to.match(/@/)
+
+🔹 Status Code Assertions
+Assertion	            Example
+Status is 200	        pm.response.to.have.status(200)
+Status is 201	        pm.response.to.have.status(201)
+Status is 200 or 201    pm.expect(pm.response.code).to.have.oneOf([200, 201])
