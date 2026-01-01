@@ -8,7 +8,6 @@ PUT/PATCH -> Put update the entired data where as PATCH only update the specific
 
 HTTP Status Code -> indicates the result of an API such as success or fail.
 
-
 HTTP Headers -> HTTP headers contain metadata about the request or response, 
 such as content type, authentication details, and caching rules.
 
@@ -53,4 +52,28 @@ search          find data based on keyword                products/search?q=text
 limit           how many data be to return                products?limit=5  
 skip            skip records and return next data         products?skip=1  
 
+Scripts -> where user defined the test.
+Types:  
+Pre-request -> It is executed before the request and is used for setup tasks like generating tokens or timestamps.
+worked at collection, folder and request level function
+Post-response -> It is executed after the request and is used for setup variables from response
+worked at collection, folder and request level function as post validation
+
 Variables -> Variables store dynamic values that can be reused across requests.
+
+Type            Purpose                         via Script
+Global          Available everywhere            pm.globals.set("name", "value")
+Environment     Environment-specific            pm.environments.set("name", "value")
+Collection      Collection-only                 pm.collectionVariables.set("name","value")
+Local           Request-only                    pm.variables.set("name","value")
+
+Environment -> Environments allow us to manage environment-specific variables like base URL, tokens, 
+and credentials for QA, staging, and production. To avoid hardcoding values and easily switch between 
+environments without changing requests.
+
+Data -> where we use csv file to provides data while running the collection.
+
+API chaining -> using data of one API response(like token, id) in another API request.
+
+Collection Runner -> Collection Runner allows execution of multiple API requests sequentially 
+like an automated test suite.
