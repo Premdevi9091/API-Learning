@@ -1,0 +1,216 @@
+{
+	"info": {
+		"_postman_id": "f097cb35-fab1-42be-8e82-53989c71e76a",
+		"name": "API-Authorization",
+		"description": "This collection helps in understanding **different types of API authorization methods**.\n\n**Authorization** is the process of verifying whether a user or client has permission to access a specific API resource.\n\n**Types of Authorization covered in this collection:**\n\n- **No Auth ->** No authorization is required. The request can be accessed without providing any credentials.\n    \n- **API Key ->** An API key is required to access the request. The key is used to identify and authorize the client.\n    \n- **Bearer Token ->** A bearer token is used as authorization to access the request. The token is typically generated after successful authentication.\n    \n- **Basic Auth ->** Uses a **username and password** for authorization. Credentials are encoded (Base64) but **not encrypted**, so it is less secure.\n    \n- **Digest Auth ->** Uses a **username and password**, but the credentials are **encrypted**, providing better security than Basic Auth.\n    \n- **OAuth 1.0 ->** A third-party authorization protocol that allows secure access without sharing user credentials.\n    \n- **OAuth 2.0 ->** A modern and widely used third-party authorization framework that provides secure, token-based access to APIs.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21963655"
+	},
+	"item": [
+		{
+			"name": "No auth",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://dummyjson.com/products",
+					"protocol": "https",
+					"host": [
+						"dummyjson",
+						"com"
+					],
+					"path": [
+						"products"
+					]
+				},
+				"description": "Authorization Type is **No Auth**\n\nURL: GET https://dummyjson.com/products"
+			},
+			"response": []
+		},
+		{
+			"name": "Bearer Token",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": " ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"XYZ\",\r\n    \"email\": \"xyz@tok.com\",\r\n    \"gender\": \"female\",\r\n    \"status\": \"active\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://gorest.co.in/public/v2/users",
+					"protocol": "https",
+					"host": [
+						"gorest",
+						"co",
+						"in"
+					],
+					"path": [
+						"public",
+						"v2",
+						"users"
+					]
+				},
+				"description": "Authorization Type is **Bearer Token**\n\nURL: [https://gorest.co.in/](https://gorest.co.in/)\n\nClick on [Get your access token ](https://gorest.co.in/my-account/access-tokens) Login into it > Token is created"
+			},
+			"response": []
+		},
+		{
+			"name": "Basic Auth",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "password",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "postman",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://postman-echo.com/basic-auth",
+					"protocol": "https",
+					"host": [
+						"postman-echo",
+						"com"
+					],
+					"path": [
+						"basic-auth"
+					]
+				},
+				"description": "Authorization Type is **Basic Auth**\n\nURL: GET [https://postman-echo.com/basic-auth](https://postman-echo.com/basic-authEndFragment)\n\nUsername: postman | Password: password"
+			},
+			"response": []
+		},
+		{
+			"name": "Basic Auth 2",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "admin",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://the-internet.herokuapp.com/basic_auth",
+					"protocol": "https",
+					"host": [
+						"the-internet",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"basic_auth"
+					]
+				},
+				"description": "Authorization Type is **Basic Auth**\n\nURL: GET https://the-internet.herokuapp.com/basic_auth\n\nUsername: admin| Password: admin"
+			},
+			"response": []
+		},
+		{
+			"name": "Digest Auth",
+			"request": {
+				"auth": {
+					"type": "digest",
+					"digest": [
+						{
+							"key": "password",
+							"value": "password",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "postman",
+							"type": "string"
+						},
+						{
+							"key": "algorithm",
+							"value": "MD5",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://postman-echo.com/digest-auth",
+					"protocol": "https",
+					"host": [
+						"postman-echo",
+						"com"
+					],
+					"path": [
+						"digest-auth"
+					]
+				},
+				"description": "Authorization Type is **Digest Auth**\n\nURL: GET [https://postman-echo.com/digest-auth](https://postman-echo.com/basic-authEndFragment)\n\nUsername: postman | Password: password"
+			},
+			"response": []
+		},
+		{
+			"name": "BearerToken_Github",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.github.com/user/repos",
+					"protocol": "https",
+					"host": [
+						"api",
+						"github",
+						"com"
+					],
+					"path": [
+						"user",
+						"repos"
+					]
+				},
+				"description": "Generate Token in your Github account\n\nSettings > Developer Settings > Personal Access token > Classic token"
+			},
+			"response": []
+		}
+	]
+}
