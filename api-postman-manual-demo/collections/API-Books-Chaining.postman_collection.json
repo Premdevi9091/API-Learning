@@ -2,7 +2,7 @@
 	"info": {
 		"_postman_id": "1abcc3f5-90b9-406e-8854-57bdb0ed4589",
 		"name": "API-Books-Chaining",
-		"description": "This collection demonstrates **API chaining** using the **Simple Books API** (`https://simple-books-api.glitch.me`).\n\n**API chaining** refers to using data from one API response (such as a token or ID) as input for subsequent API requests.\n\nIn this collection:\n\n- A **token is generated using a POST request** and stored in an **environment variable**.\n    \n- The stored token is then used to authorize **POST, PATCH, and DELETE** requests.\n    \n- A **dynamic** **`customerName`** is generated in the **Pre-request Script** and saved as a **collection variable**.\n    \n- The **`orderId`** returned from the order creation response is stored as a **collection variable**.\n    \n- This stored `orderId` is reused to:\n    \n    - **Read** the order using **GET**\n        \n    - **Update** the order using **PATCH**\n        \n    - **Delete** the order using **DELETE**",
+		"description": "This collection demonstrates **API chaining** using the **Simple Books API** (`https://simple-books-api.click`).\n\n**API chaining** refers to using data from one API response (such as a token or ID) as input for subsequent API requests.\n\nIn this collection:\n\n- A **token is generated using a POST request** and stored in an **environment variable**.\n    \n- The stored token is then used to authorize **POST, PATCH, and DELETE** requests.\n    \n- A **dynamic** **`customerName`** is generated in the **Pre-request Script** and saved as a **collection variable**.\n    \n- The **`orderId`** returned from the order creation response is stored as a **collection variable**.\n    \n- This stored `orderId` is reused to:\n    \n    - **Read** the order using **GET**\n        \n    - **Update** the order using **PATCH**\n        \n    - **Delete** the order using **DELETE**",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "21963655"
 	},
@@ -394,7 +394,7 @@
 	"variable": [
 		{
 			"key": "baseURL_book",
-			"value": ""
+			"value": "https://simple-books-api.click"
 		},
 		{
 			"key": "clientName",
