@@ -90,3 +90,25 @@ Types:
 5. Digest auth -> Username + password is used as authentication and encrypted
 6. Outh 1.0 -> Used 3th party auth tool
 7. Outh 2.0 -> Used 3th party auth tool
+
+Important methods
+Random Number 
+function randomNumber(length){
+    return Math.floor(Math.random() * Math.pow(10, length));
+}
+
+function randomAlphaNum(length){
+    return Math.random().toString(36).substring(2, 2 + length);
+}
+
+function randomString(length){
+    let chars = "abcdefghijklmnopqrstuvwxyz";
+    let result = "";
+    for(let i = 0; i < length; i++){
+        result += chars.charAt(Math.floor(Math.random() * chars.length));
+        if(i == 0){
+            result = result.charAt(i).toUpperCase();
+        }
+    }
+    return result;
+}

@@ -3,19 +3,19 @@
 	"values": [
 		{
 			"key": "global_baseURL",
-			"value": "",
+			"value": "https://dummyjson.com",
 			"type": "default",
 			"enabled": true
 		},
 		{
 			"key": "global_customURL",
-			"value": "",
+			"value": "http://localhost:3000",
 			"type": "default",
 			"enabled": true
 		},
 		{
 			"key": "global_id",
-			"value": "",
+			"value": "3",
 			"type": "any",
 			"enabled": true
 		}

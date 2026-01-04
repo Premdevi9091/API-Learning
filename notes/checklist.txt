@@ -34,7 +34,7 @@ Day	Topic	            What to Do (Checklist)	                        Output
 Create your own API
 1. Install Node JS
 2. check node --version and npm --version in cmd 
-3. run npm install -g json-server
+3. run cmd -> npm install -g json-server
 4. Create sample JSON file 
 5. Open that file in CMD 
 6. Run json-server file_name
