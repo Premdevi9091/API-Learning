@@ -1,0 +1,88 @@
+public static Map<String, Map<String, Map<String, String>>> readCompetencyAsJson(
+        String filePath,
+        String sheetName) throws Exception {
+
+    Map<String, Map<String, Map<String, String>>> result = new LinkedHashMap<>();
+
+    try (FileInputStream fis = new FileInputStream(filePath)) {
+
+        Workbook workbook = WorkbookFactory.create(fis);
+        Sheet sheet = (sheetName == null)
+                ? workbook.getSheetAt(0)
+                : workbook.getSheet(sheetName);
+
+        boolean inCompetencyBlock = false;
+        String currentSection = null;
+
+        for (Row row : sheet) {
+
+            Cell first = row.getCell(0);
+            if (first == null || first.getCellType() != Cell.CELL_TYPE_STRING)
+                continue;
+
+            String name = first.getStringCellValue().trim();
+            if (name.isEmpty())
+                continue;
+
+            /* ---- Detect competency header ---- */
+            if (!inCompetencyBlock &&
+                name.toLowerCase().contains("competency")) {
+                inCompetencyBlock = true;
+                continue;
+            }
+
+            if (!inCompetencyBlock)
+                continue;
+
+            String value = null;
+            String score = null;
+
+            /* ---- Scan ALL columns for value & score ---- */
+            for (int c = 1; c < row.getLastCellNum(); c++) {
+                Cell cell = row.getCell(c);
+                if (cell == null) continue;
+
+                if (value == null &&
+                    cell.getCellType() == Cell.CELL_TYPE_STRING) {
+
+                    String s = cell.getStringCellValue().trim();
+                    if (!s.isEmpty()) {
+                        value = s;
+                        continue;
+                    }
+                }
+
+                if (value != null) {
+                    if (cell.getCellType() == Cell.CELL_TYPE_NUMERIC) {
+                        score = String.valueOf(cell.getNumericCellValue());
+                        break;
+                    }
+                    if (cell.getCellType() == Cell.CELL_TYPE_STRING) {
+                        String s = cell.getStringCellValue().trim();
+                        if (!s.isEmpty()) {
+                            score = s; // handles N/A
+                            break;
+                        }
+                    }
+                }
+            }
+
+            /* ---- SECTION ROW ---- */
+            if (value == null && score == null) {
+                currentSection = name;
+                result.putIfAbsent(currentSection, new LinkedHashMap<>());
+                continue;
+            }
+
+            /* ---- SUB-SECTION ROW ---- */
+            if (currentSection != null) {
+                Map<String, String> sub = new LinkedHashMap<>();
+                sub.put("value", value);
+                sub.put("score", score);
+                result.get(currentSection).put(name, sub);
+            }
+        }
+    }
+
+    return result;
+}
